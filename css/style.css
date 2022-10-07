@@ -1,0 +1,656 @@
+/* ......... Zeroing styles .......... */
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   border: 0;
+   box-sizing: border-box;
+}
+a {
+   text-decoration: none;
+}
+ul,
+ol,
+li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+html,
+body {
+   line-height: 1;
+   color: #fff;
+   height: 100%;
+}
+@media (orientation: landscape) {
+   html,
+   body {
+      height: auto;
+      min-height: 100vh;
+   }
+}
+
+/* .........FONTS................................ */
+@font-face {
+   font-family: "Calibri";
+   src: url("../fonts/Calibri.woff2") format("woff2"), url("../fonts/Calibri.woff") format("woff");
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+@font-face {
+   font-family: "Calibri";
+   src: url("../fonts/Calibri-Bold.woff2") format("woff2"), url("../fonts/Calibri-Bold.woff") format("woff");
+   font-weight: bold;
+   font-style: normal;
+   font-display: swap;
+}
+@font-face {
+   font-family: "Britannic";
+   src: url("../fonts/BritannicBold.woff2") format("woff2"), url("../fonts/BritannicBold.woff") format("woff");
+   font-weight: bold;
+   font-style: normal;
+   font-display: swap;
+}
+/* ........FONTS END.............................. */
+
+body {
+   position: relative;
+   background: #2d2749 url("../img/bg.jpg") 50% 0 / cover no-repeat;
+   font-family: "Calibri", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+.header {
+   display: block;
+   background: #1e1e1e url("../img/svg/logo.svg") 50% 50%/224px 45px no-repeat;
+   height: 60px;
+}
+.hexagon {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   max-width: 1318px;
+   min-height: 845px;
+   text-align: center;
+   margin: 11px auto 8px;
+}
+.hexagon::before {
+   content: "";
+   position: absolute;
+   left: 54%;
+   top: 0px;
+   z-index: 2;
+   transform: translateX(-54%);
+   background: url("../img/arrows.png") 0 / contain no-repeat;
+   pointer-events: none;
+   max-width: 1047px;
+   width: 100%;
+   max-height: 839px;
+   height: 100%;
+   animation: arrows 1.5s linear 1s infinite alternate;
+}
+@keyframes arrows {
+   to {
+      transform: translateX(-54%) scale(0.9);
+   }
+}
+.hexagon__content {
+   position: relative;
+   background: url("../img/hexagon-orange.png") 50% no-repeat;
+   max-width: 823px;
+   max-height: 845px;
+   padding: 139px 0 0px;
+}
+.hexagon__content::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: -2;
+   background: url("../img/hexagon-outline.png") 50% / contain no-repeat;
+   width: 100%;
+   height: 100%;
+   animation: hexagon-outline 10s linear 1s infinite;
+}
+@keyframes hexagon-outline {
+   to {
+      transform: rotate(-365deg);
+   }
+}
+.hexagon__content::after {
+   content: "";
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   z-index: -1;
+   transform: translate(-50%, -50%);
+   background: url("../img/hexagon-violet.png") 0 / contain no-repeat;
+   max-width: 768px;
+   width: 100%;
+   max-height: 787px;
+   height: 100%;
+   animation: hexagon-violet 10s linear 1s infinite;
+}
+@keyframes hexagon-violet {
+   to {
+      transform: translate(-50%, -50%) rotate(365deg);
+   }
+}
+.hexagon__name {
+   font-family: "Britannic";
+   font-size: 30px;
+   text-transform: uppercase;
+   text-shadow: 0 0 9px #ff4c66, 0 0 9px #ff4c66;
+   margin-bottom: 36px;
+}
+.hexagon__bonus {
+   display: flex;
+   flex-direction: column;
+   font-family: "Britannic";
+   font-size: 64px;
+   text-shadow: 0 0 9px #ff4c66, 0 0 9px #ff4c66;
+   row-gap: 14px;
+   margin-bottom: 32px;
+}
+/* ........HEXAGON BUTTON VARIANT 1............ */
+/* ======= We can easily change button color ======= */
+.hexagon__button {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 118px;
+   background: linear-gradient(#48e8e8, #0171db);
+   width: 343px;
+   height: 86px;
+   font-size: 30px;
+   font-weight: bold;
+   text-transform: uppercase;
+   margin-bottom: 53px;
+}
+.hexagon__button a {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 118px;
+   background: linear-gradient(#0070db, #48e8e8);
+   width: 329px;
+   height: 72px;
+   color: #fff;
+}
+.hexagon__button a:hover {
+   background: linear-gradient(#9501ff, #39b8ff);
+}
+.hexagon__button a:hover::before {
+   background: linear-gradient(#38baff, #9304ff);
+}
+
+/* .........HEXAGON BUTTON VARIANT 2.................. */
+/* === We can't easily change button color, but code is shortly === */
+/* .hexagon__button a {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #48e8e8 url("../img/btn.png");
+   border-radius: 118px;
+   width: 343px;
+   height: 86px;
+   font-size: 30px;
+   font-weight: bold;
+   text-transform: uppercase;
+   color: #fff;
+   margin: 0px auto 53px;
+   transition: background 0.3s ease;
+}
+.hexagon__button a:hover {
+   background: #9304ff url("../img/btn_hower.png");
+} */
+/* .........BUTTONS END............................... */
+
+.hexagon__terms {
+   font-size: 24px;
+   line-height: 1.16;
+   padding: 0 182px;
+}
+.hexagon__terms a {
+   color: #ffde6a;
+}
+.hexagon__terms a:hover {
+   text-decoration: underline;
+}
+.adult {
+   background-color: rgba(255, 103, 103, 0.5);
+   font-size: 24px;
+   font-weight: bold;
+   line-height: 1.2;
+   text-align: center;
+   padding: 24px calc(50% - 1132px / 2);
+   outline: none;
+}
+.adult a {
+   color: #ffe484;
+}
+.adult a:hover {
+   text-decoration: underline;
+}
+.steps {
+   padding: 40px calc(50% - 1132px / 2);
+}
+.steps__list {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.steps__item {
+   display: flex;
+   font-size: 24px;
+   line-height: 1.08;
+}
+.steps__image {
+   max-width: 66px;
+   max-height: 73px;
+   margin-right: 22px;
+}
+.steps__image img {
+   width: 100%;
+}
+.steps__text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.steps__item--arrow {
+   background: url("../img/arrow.png");
+   width: 42px;
+   height: 43px;
+   margin: 0 59px;
+}
+.steps__item--arrow:nth-child(2) {
+   margin-left: 67px;
+   margin-right: 69px;
+}
+.copyright {
+   max-width: 1132px;
+   font-size: 18px;
+   line-height: 1.4;
+   text-align: center;
+   border-top: 1px solid #ffd57d;
+   padding: 23px 0;
+   margin: 0 auto;
+}
+
+/* ..................COINS............................... */
+.coins {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   max-width: 1920px;
+   width: 100%;
+   max-height: 1260px;
+   height: 100%;
+   overflow-x: hidden;
+}
+.coins__container {
+   position: relative;
+   top: 0px;
+   left: 0vw;
+   max-width: 1920px;
+   width: 100%;
+   max-height: 1260px;
+   height: 100%;
+}
+.coins__coin {
+   position: absolute;
+}
+picture {
+   object-fit: contain;
+   object-position: center;
+}
+.coin1,
+.coin6,
+.coin7 {
+   animation: coins_a 2.5s linear 1s infinite;
+}
+.coin2,
+.coin3 {
+   animation: coins_b 1.8s linear 1s infinite;
+}
+.coin4,
+.coin5 {
+   animation: coins_c 2s linear 1s infinite;
+}
+@keyframes coins_a {
+   to {
+      transform: rotate3d(0, 0.33, -1, 360deg);
+   }
+}
+@keyframes coins_b {
+   to {
+      transform: rotate3d(0, 0.33, 1, 360deg);
+   }
+}
+@keyframes coins_c {
+   to {
+      transform: rotate3d(0, 0.33, -1, 360deg);
+   }
+}
+.coin1 {
+   left: 25.16vw;
+   top: 7.62vh;
+}
+.coin2 {
+   left: 16.09vw;
+   top: 38.25vh;
+   z-index: -3;
+}
+.coin3 {
+   left: 20.99vw;
+   top: 69.13vh;
+   z-index: -1;
+}
+.coin4 {
+   left: 66.61vw;
+   top: 11.59vh;
+   z-index: -3;
+}
+.coin5 {
+   left: 82.03vw;
+   top: 39.44vh;
+}
+.coin6 {
+   left: 80.16vw;
+   top: 55.71vh;
+}
+.coin7 {
+   left: 60.21vw;
+   top: 71.59vh;
+   z-index: -1;
+}
+@media (max-width: 1200px) {
+   .coin1 {
+      left: 17.92vw;
+      top: 9.75vh;
+   }
+   .coin2 {
+      left: 5.75vw;
+      top: 38.39vh;
+   }
+   .coin3 {
+      left: 12.33vw;
+      top: 67.29vh;
+   }
+   .coin4 {
+      left: 73.5vw;
+      top: 9.49vh;
+   }
+   .coin5 {
+      left: 94.17vw;
+      top: 39.54vh;
+   }
+   .coin6 {
+      left: 91.67vw;
+      top: 54.79vh;
+   }
+   .coin7 {
+      left: 64.92vw;
+      top: 69.59vh;
+   }
+}
+@media (max-width: 768px) {
+   .coin1 {
+      left: 26.69vw;
+      top: 16.67vh;
+   }
+   .coin2 {
+      left: 18.1vw;
+      top: 34.97vh;
+   }
+   .coin3 {
+      left: 22.79vw;
+      top: 53.54vh;
+   }
+   .coin4 {
+      left: 69.14vw;
+      top: 13.13vh;
+   }
+   .coin5 {
+      left: 83.33vw;
+      top: 37.88vh;
+   }
+   .coin6 {
+      left: 78.39vw;
+      top: 47.98vh;
+   }
+   .coin7 {
+      left: 59.64vw;
+      top: 54.92vh;
+   }
+}
+/* ..................COINS END........................... */
+
+@media (max-width: 1200px) {
+   body {
+      background-image: url("../img/bg-tablet.jpg");
+   }
+   .hexagon {
+      max-width: 1105px;
+      min-height: 771px;
+      margin-top: 13px;
+      margin-bottom: 15px;
+   }
+   .hexagon::before {
+      left: 58%;
+      transform: translateX(-58%);
+      background-image: url("../img/arrows-tablet.png");
+      max-width: 946px;
+   }
+   .hexagon::after {
+      left: 56%;
+      top: 36px;
+      z-index: -3;
+      background-image: url("../img/coins-tablet.png");
+      max-height: 706px;
+   }
+   .hexagon__content {
+      background-size: 707px;
+      max-width: 742px;
+      padding-top: 160px;
+   }
+   .hexagon__content::after {
+      max-width: 694px;
+      max-height: 711px;
+   }
+   .hexagon__name {
+      font-size: 24px;
+   }
+   .hexagon__bonus {
+      font-size: 48px;
+      row-gap: 11px;
+      margin-bottom: 43px;
+   }
+   .hexagon__button {
+      width: 280px;
+      height: 70px;
+      font-size: 24px;
+      margin-bottom: 60px;
+   }
+   .hexagon__button a {
+      width: 266px;
+      height: 56px;
+   }
+   .hexagon__terms {
+      font-size: 18px;
+      padding: 0 158px;
+   }
+   .adult {
+      font-size: 18px;
+      padding: 24px calc(50% - 600px / 2);
+   }
+   .steps {
+      padding: 41px calc(50% - 722px / 2);
+   }
+   .steps__item {
+      font-size: 18px;
+   }
+   .steps__image {
+      max-width: 45px;
+      max-height: 49px;
+      margin-right: 13px;
+   }
+   .steps__item--arrow {
+      margin: 0 18px;
+   }
+   .steps__item--arrow:nth-child(2) {
+      margin-left: 13px;
+      margin-right: 12px;
+   }
+   .steps__text {
+      justify-content: space-around;
+   }
+   .copyright {
+      max-width: 722px;
+      font-size: 14px;
+      padding: 14px 0;
+   }
+}
+@media (min-width: 768px) and (max-width: 1148px) {
+   .hexagon::after {
+      transform: translateX(-56%);
+   }
+}
+@media (max-width: 768px) {
+   body {
+      background-image: url("../img/bg-mobile.jpg");
+      background-size: cover;
+      background-position-y: 32px;
+   }
+   .header {
+      height: 56px;
+      background-image: url("../img/logo-mobile.png");
+      background-size: 131px 27px;
+      background-position-y: 18px;
+   }
+   .hexagon {
+      max-width: 486px;
+      min-height: 397px;
+      margin-top: 10px;
+      margin-bottom: 9px;
+   }
+   .hexagon::before {
+      left: 54%;
+      transform: translateX(-54%);
+      background-image: url("../img/arrows-mobile.png");
+   }
+   .hexagon__content {
+      background-size: 364px 326px;
+      background-position-y: 33px;
+      max-width: 382px;
+      max-height: 393px;
+      padding-top: 66px;
+   }
+   .hexagon__content::after {
+      max-width: 357px;
+      max-height: 366px;
+   }
+   .hexagon__name {
+      font-size: 14px;
+      margin-bottom: 18px;
+   }
+   .hexagon__bonus {
+      font-size: 24px;
+      row-gap: 6px;
+      margin-bottom: 13px;
+   }
+   .hexagon__button {
+      width: 133px;
+      height: 34px;
+      font-size: 14px;
+      margin-bottom: 27px;
+   }
+   .hexagon__button a {
+      width: 127px;
+      height: 28px;
+   }
+   .hexagon__terms {
+      font-size: 12px;
+      line-height: 1.2;
+      padding: 0 74px;
+   }
+   .adult {
+      font-size: 14px;
+      line-height: 1.21;
+      padding: 21px calc(50% - 319px / 2);
+   }
+   .steps {
+      padding: 22px calc(50% - 300px / 2);
+   }
+   .steps__list {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      row-gap: 13px;
+   }
+   .steps__item {
+      flex-basis: 255px;
+      font-size: 16px;
+   }
+   .steps__image {
+      max-width: 30px;
+      max-height: 33px;
+   }
+   .steps__item:nth-child(1) .steps__image {
+      width: 26px;
+      height: 30px;
+      margin-right: 12px;
+   }
+   .steps__item:nth-child(3) .steps__image {
+      width: 25px;
+      height: 33px;
+      margin-right: 13px;
+   }
+   .steps__item:nth-child(5) .steps__image {
+      width: 30px;
+      height: 33px;
+      margin: -3px 10px 4px -2px;
+   }
+   .steps__text {
+      flex-direction: row;
+      align-items: center;
+   }
+   .steps__item:nth-child(5) .steps__text {
+      margin-top: -10px;
+   }
+   .steps__line:nth-child(1)::after {
+      content: "\00a0 ";
+   }
+   .steps__item--arrow {
+      max-width: 32px;
+      max-height: 31px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: rotate(93deg);
+      margin: 0px 0px -4px 4px;
+   }
+   .steps__item--arrow:nth-child(2) {
+      margin: 0px 0px -7px 3px;
+   }
+   .copyright {
+      max-width: 319px;
+      font-size: 12px;
+      padding: 11px 54px 11px 0px;
+      margin-top: 2px;
+   }
+}
